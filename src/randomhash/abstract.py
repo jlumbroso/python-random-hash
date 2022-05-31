@@ -83,10 +83,8 @@ class AbstractRandomHashFamily:
         count: typing.Optional[int] = None,
         as_real: typing.Optional[bool] = None,
     ) -> typing.List[int]:
-
-        # compute the base hash
-
-        base_key_hash = self._base_hash(key=key)
+        
+        # before hashing anything, do argument validation
 
         # determine how to output the hashes
 
@@ -102,6 +100,15 @@ class AbstractRandomHashFamily:
                 "cannot generate more than m={} hash values; "
                 "initialize class with larger count of hash values"
             ).format(self._count))
+        
+        if count < 0:
+            raise ValueError("cannot generate invalid count of hash values")
+
+        # compute the base hash
+
+        base_key_hash = self._base_hash(key=key)
+
+        # generate the derivate hashes using the tables
 
         computed_hashes = [
             helpers.truncate_number(
