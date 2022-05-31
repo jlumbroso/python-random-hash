@@ -32,6 +32,14 @@ def generate_coprime(
     return coprime
 
 
+def int_to_real(x_int: int) -> float:
+    return x_int / (2**WORD_SIZE - 1.0)
+
+
+def real_to_int(x_real: float) -> int:
+    return int(x_real * (2**WORD_SIZE - 1))
+
+
 def str_to_bytes(
     key: str
 ) -> bytes:

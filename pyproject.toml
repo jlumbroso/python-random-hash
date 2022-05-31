@@ -17,7 +17,7 @@ license = "LGPL-3.0-or-later"
 name = "randomhash"
 readme = "README.md"
 repository = "https://github.com/jlumbroso/python-random-hash"
-version = "0.5.0"
+version = "0.6.0"
 
 [tool.tox]
 legacy_tox_ini = """

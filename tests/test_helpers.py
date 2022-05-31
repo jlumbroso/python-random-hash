@@ -14,6 +14,12 @@ def test_call_affine_transform():
 def test_call_generate_coprime():
     helpers.generate_coprime()
 
+def test_call_int_to_real():
+    assert helpers.int_to_real(0) == 0.0
+
+def test_call_real_to_int():
+    assert helpers.real_to_int(0) == 0
+
 def test_call_str_to_bytes():
     helpers.str_to_bytes(_SOME_STRING)
 
