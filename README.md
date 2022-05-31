@@ -1,9 +1,36 @@
 # Python `randomhash` package
 
+[![pytest](https://github.com/jlumbroso/python-random-hash/actions/workflows/continuous-integration.yaml/badge.svg)](https://github.com/jlumbroso/python-random-hash/actions/workflows/continuous-integration.yaml)
+[![codecov](https://codecov.io/gh/jlumbroso/python-random-hash/branch/main/graph/badge.svg?token=4S8TD999YC)](https://codecov.io/gh/jlumbroso/python-random-hash)
+
 A simple, time-tested, family of random hash functions in Python, based on CRC32
 and xxHash, affine transformations, and the Mersenne Twister.
 
 This is a companion library to [the identical Java version](https://github.com/jlumbroso/java-random-hash).
+
+## Installation and usage
+
+The library is available on PyPI, and can be installed through normal means:
+
+```shell
+$ pip install randomhash
+```
+
+Once installed, it can be called either by instantiating a family of random
+hash functions, or using the default instantiated functions:
+
+```python
+import randomhash
+
+# Create a family of random hash functions, with 10 hash functions
+
+rfh = randomhash.RandomHashFamily(count=10)
+print(rfh.hashes("hello"))  # will compute the ten hashes for "hello"
+
+# Use the default instantiated functions
+
+print(randomhash.hashes("hello", count=10))
+```
 
 ## Features
 
